@@ -1,0 +1,326 @@
+:root {
+    --normal-border-radius: 0.8rem;
+    --small-border-radius: 0.4rem;
+}
+
+
+*,
+*::after,
+::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: 0;
+    outline: 0;
+    list-style: none;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+    line-height: 1.6;
+    font-family: Roboto, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #333;
+    overflow: hidden;
+}
+
+.main {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(90deg, rgb(13, 181, 248) 0%, rgb(237, 44, 82) 100%);
+}
+
+
+
+.header {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem 0;
+    backdrop-filter: blur(10px);
+    background-color: hsla(0, 0%, 100%, 0.5);
+    box-shadow: 0.5rem 0.5rem 4rem rgba(0, 0, 0, 0.205);
+
+}
+
+.header__title-cont {
+    display: inline-block;
+    background-color: rgba(11, 115, 133, 0.486);
+    padding: 1.2rem 2.4rem;
+    border-radius: 0.3rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+
+}
+
+.sub-head {
+    font-family: 'Segoe Print', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    font-style: italic;
+    display: inline-block;
+    text-shadow: 0px 1px 1px #333, 0px 2px 3px #444;
+    transform: rotateX(3deg) rotateY(-10deg) rotateZ(-10deg);
+    color: #fff;
+
+
+}
+
+/* ! Main app section */
+.app-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.app {
+    color: #fff;
+    background-color: #464442;
+    /* padding: 1.2rem 2.4rem; */
+    border-radius: var(--normal-border-radius);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.app-todo__list {
+    position: relative;
+    margin: 1.2rem 2.4rem;
+}
+
+.app-todo__scroll {
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+.app-todo__list-head {
+    /* background-color: #fab005; */
+    background-color: #868e96;
+    color: #fff;
+    padding: 1.6rem 3.2rem;
+    width: 100%;
+    border-radius: var(--normal-border-radius);
+    text-align: center;
+
+}
+
+.app-todo__list-ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-height: 50vh;
+}
+
+
+
+.app-todo__list-li {
+    padding: 0.8rem;
+    background-color: #20c997;
+    border-radius: var(--normal-border-radius);
+    border-left: 6px solid orangered;
+}
+
+
+
+.app-todo__list-top {
+    padding: 0.5rem 1rem;
+    border-radius: inherit;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: 700;
+    background-color: #f59f00;
+    color: #000;
+}
+
+/* * new task adding button */
+.btn-cont {
+    position: fixed;
+    bottom: 0rem;
+    right: 1rem;
+    width: fit-content;
+}
+
+.btn-add {
+    font-size: 1.4rem;
+    padding: 0.8rem 1.6rem;
+    border-radius: inherit;
+    position: relative;
+    background-color: transparent;
+    color: #000;
+    z-index: 1;
+    font-weight: 600;
+    border-radius: var(--small-border-radius);
+
+    transition: all 0.3s;
+}
+
+.btn-add::before,
+.btn-add::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    z-index: -1;
+    transition: all 0.3s;
+
+}
+
+.btn-add::before {
+    transform: scale(0.95) skewY(10deg);
+    background-color: #65dcec;
+    z-index: -2;
+
+}
+
+
+.btn-add::after {
+    transform: scale(1) skewY(-7deg);
+    background-color: #20c997;
+    z-index: -1;
+
+}
+
+
+.btn-add:hover::before {
+    transform: scale(1) skewY(-7deg);
+    z-index: -1;
+
+}
+
+.btn-add:hover::after {
+    transform: scale(0.95) skewY(10deg);
+    z-index: -2;
+
+}
+
+/* ! Input new task */
+/* #NOTE  this menu shows while adding a new task*/
+.form-cont {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 80vh;
+    width: 100%;
+    background-color: #e9e6e67a;
+    color: #17555e;
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: shadeAndView;
+    animation-duration: 0.6s;
+    /* ! For Animation */
+
+}
+
+.form {
+    background-color: #c7c7c7;
+    padding: 1.2rem 2.4rem;
+    border-radius: var(--small-border-radius);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+}
+
+.input-field {
+    font-size: inherit;
+    font-family: inherit;
+    padding: 0.4rem 0.8rem;
+    border-radius: var(--small-border-radius);
+}
+
+.input-label {
+    display: block;
+}
+
+/* * button */
+
+.btn {
+    display: inline-block;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* ! Animation */
+
+@keyframes shadeAndView {
+    0% {
+        opacity: 0;
+        transform: translateY(150%);
+        visibility: hidden;
+        cursor: none;
+        user-select: none;
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        visibility: visible;
+        cursor: auto;
+        user-select: auto;
+    }
+}
+
+/* ! custom style classes */
+.styled-line {
+    --border-color: #66d9e8;
+    padding: 0.2rem;
+    border-radius: 1rem;
+    border-right: 3px solid var(--border-color);
+
+}
+
+/* ! scrollbar customization */
+::-webkit-scrollbar {
+    width: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 2px;
+
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 2px;
+}
+
+/* * Garbage Classes */
+
+.hidden {
+    display: none;
+}
+
+.align-center {
+    text-align: center;
+}
+
+.margin-bottom-large {
+    margin-bottom: 5.6rem !important;
+}
+
+.margin-bottom-small {
+    margin-bottom: 1.2rem !important;
+}
+
+.margin-top-small {
+    margin-top: 1.2rem;
+}
+
+.margin-right-little {
+    margin-right: 0.5rem !important;
+}
