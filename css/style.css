@@ -24,9 +24,18 @@ body {
     line-height: 1.6;
     font-family: Roboto, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     color: #333;
-    overflow: hidden;
 }
 
+/* * button */
+
+.btn {
+    display: inline-block;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* /////////////// */
 .main {
     width: 100%;
     height: 100vh;
@@ -87,6 +96,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    min-width: 30rem;
 }
 
 .app-todo__list {
@@ -115,6 +125,7 @@ body {
     flex-direction: column;
     gap: 1rem;
     max-height: 50vh;
+    max-width: 32rem;
 }
 
 
@@ -123,30 +134,144 @@ body {
     padding: 0.8rem;
     background-color: #20c997;
     border-radius: var(--normal-border-radius);
-    border-left: 6px solid orangered;
+    border-left: 6px solid transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    gap: 0.8rem;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    position: relative;
+
 }
 
+.app-todo__list-li:hover .app-todo__list-delete {
+    transform: scale(1);
+}
 
 
 .app-todo__list-top {
     padding: 0.5rem 1rem;
-    border-radius: inherit;
+    min-width: 10rem;
+    border-radius: var(--small-border-radius);
     display: flex;
-    justify-content: space-evenly;
-    align-items: center;
+    justify-content: space-around;
+    align-items: left;
     font-size: 1.2rem;
     font-weight: 700;
     background-color: #f59f00;
     color: #000;
+    text-transform: capitalize;
 }
 
-/* * new task adding button */
+
+
+.app-todo__list-delete {
+    width: fit-content;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: hsla(0, 0%, 78%, 0.589);
+    border-radius: inherit;
+    transform: scale(0);
+    transition: all 0.5s;
+    padding: 0 0.8rem;
+    backdrop-filter: blur(3px);
+    cursor: pointer;
+
+}
+
+
+.app-todo__list-delete-icon {
+    height: 2rem;
+    fill: rgb(250, 89, 30);
+    transition: all 0.3s;
+    transform: scale(1);
+
+}
+
+.btn-delete {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.btn-delete:hover {
+    transform: scale(1.3);
+}
+
+
+
+/* * bottom buttons */
 .btn-cont {
     position: fixed;
     bottom: 0rem;
     right: 1rem;
     width: fit-content;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
+
+/* * button more/ 3 dot button */
+
+.btn-more-cont {
+    position: relative;
+}
+
+.btn-more {
+    /* font-size: 5rem; */
+    height: 4rem;
+    width: 1rem;
+    padding: 1.2rem 0;
+    border-radius: 100rem;
+    position: relative;
+    background-color: transparent;
+}
+
+.btn-more::before,
+.btn-more::after,
+.btn-more span {
+    content: '';
+    position: absolute;
+    left: 50%;
+    height: 5px;
+    width: 5px;
+    background-color: black;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+}
+
+.btn-more::before {
+    top: 8px;
+}
+
+.btn-more::after {
+    bottom: 3px;
+}
+
+.btn-clear-all {
+    position: absolute;
+    top: -4rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 2rem;
+    width: 100%;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.btn-clear-all__icon {
+    height: 2rem;
+    width: 2rem;
+    fill: red;
+}
+
+/* * new task adding button */
 
 .btn-add {
     font-size: 1.4rem;
@@ -206,7 +331,7 @@ body {
 
 /* ! Input new task */
 /* #NOTE  this menu shows while adding a new task*/
-.form-cont {
+.form-main {
     position: fixed;
     bottom: 0;
     left: 0;
@@ -218,10 +343,16 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    animation: shadeAndView;
-    animation-duration: 0.6s;
+    /* animation: fadeIn; */
+    /* animation-duration: 0.6s; */
+    transition: 0.5s;
+
     /* ! For Animation */
 
+}
+
+.form-cont {
+    position: relative;
 }
 
 .form {
@@ -231,7 +362,6 @@ body {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-
 }
 
 .input-field {
@@ -245,19 +375,40 @@ body {
     display: block;
 }
 
-/* * button */
+.form-cancel {
+    position: absolute;
+    top: 0;
+    right: 1rem;
+}
 
-.btn {
-    display: inline-block;
-    outline: none;
-    border: none;
-    cursor: pointer;
+.btn-cancel {
+    color: #000;
+    font-size: inherit;
+    background-color: transparent;
+    border-bottom: 2px solid currentColor;
 }
 
 /* ! Animation */
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+        visibility: visible;
+        cursor: auto;
+        user-select: auto;
+    }
 
-@keyframes shadeAndView {
-    0% {
+    to {
+        opacity: 0;
+        transform: translateY(150%);
+        visibility: hidden;
+        cursor: none;
+        user-select: none;
+    }
+}
+
+@keyframes fadeIn {
+    from {
         opacity: 0;
         transform: translateY(150%);
         visibility: hidden;
@@ -265,7 +416,7 @@ body {
         user-select: none;
     }
 
-    100% {
+    to {
         opacity: 1;
         transform: translateY(0);
         visibility: visible;
@@ -303,6 +454,13 @@ body {
 
 .hidden {
     display: none;
+}
+
+.fade-down {
+    transform: translateY(200%);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity, transform 0.4s, visibility 0.6s;
 }
 
 .align-center {

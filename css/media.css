@@ -1,0 +1,20 @@
+@media (max-width: 43.75em) {
+    html {
+        font-size: 52%;
+
+    }
+
+    .margin-bottom-large {
+        margin-bottom: 3.2rem !important;
+    }
+}
+
+@media (max-width: 37.5em) {
+    html {
+        font-size: 48%;
+    }
+
+    .margin-bottom-large {
+        margin-bottom: 1.8rem !important;
+    }
+}
