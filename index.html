@@ -2,95 +2,98 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <script defer src="javascript/script.js"></script>
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/media.css">
-    <title>To-Do App</title>
+  <script defer src="javascript/script.js"></script>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/media.css">
+  <title>To-Do App</title>
 </head>
 
 <body>
-    <main class="main">
-        <header class="header margin-bottom-large">
-            <div class="header__title-cont">
-                <h1 class="heading-first">To-Do App</h1>
-                <p class="sub-head">(Track Routines)</p>
-            </div>
-        </header>
-        <div class="app-container">
-            <div class="app">
-                <div class="app-todo__list-head">
-                    <h3>To-Do List</h3>
-                </div>
-                <div class="app-todo__scroll">
-                    <div class="app-todo__list">
-                        <ul class="app-todo__list-ul">
-                            "Empty list"
-                        </ul>
-                    </div>
-                </div>
-            </div>
+  <main class="main">
+    <!-- App header (contains Head/Name, Sub-names) -->
+    <header class="header margin-bottom-large">
+      <div class="header__title-cont">
+        <h1 class="heading-first">To-Do App</h1>
+        <p class="sub-head">Make Schedules</p>
+      </div>
+    </header>
+    <!-- Main App which includes ToDo List -->
+    <div class="app-container">
+      <div class="app">
+        <div class="app-todo__list-head">
+          <h3>To-Do List</h3>
         </div>
-    </main>
-    <div class="btn-cont margin-bottom-small align-center">
-        <div class="btn-more-cont">
-            <button class="btn btn-more"><span></span>
-            </button>
-            <div class="btn-more-options">
-                <button class="btn btn-clear-all"><svg class="btn-clear-all__icon" xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 448 512">
-                        <path class="del"
-                            d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z" />
-                    </svg>
-                    <title class="input-label">delete All</title>
-                </button>
-            </div>
+        <div class="app-todo__scroll">
+          <ul class="app-todo__list-ul">
+            "Empty list"
+          </ul>
         </div>
-        <button class="btn btn-add btn-add-new">Add New</button>
+      </div>
     </div>
-    <!-- <div class="btn-more__cont">
-        <svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" data-name="Layer 1" viewBox="0 0 29.96 122.88">
-            <path class="cls-1"
-                d="M15,0A15,15,0,1,1,0,15,15,15,0,0,1,15,0Zm0,92.93a15,15,0,1,1-15,15,15,15,0,0,1,15-15Zm0-46.47a15,15,0,1,1-15,15,15,15,0,0,1,15-15Z" />
-        </svg>
-    </div> -->
-    <div class="form-main fade-down">
-        <div class="form-cont">
-            <div class="form-cancel"><button class="btn btn-cancel">Cancel</button></div>
-            <form action="" class="form">
+  </main>
+  <!-- buttons related to add and customising the list -->
+  <div class="btn-cont margin-bottom-small align-center">
+    <button class="btn btn-add btn-add-new">Add New</button>
 
-                <div class="input-cont">
-                    <label class="input-label label-time" for="">At Time</label>
-                    <input type="time" name="" id="input-time" required class="input-field input-time" />
-                </div>
-                <div class="input-cont">
-                    <label for=" input-activity" class="input-label label-activity">Activity</label>
-                    <input type="text" maxlength="20" required placeholder="Activity" name="" id="input-activity"
-                        class="input-field input-activity" />
-                </div>
-                <div class="input-cont">
-                    <label for=" input-description" class="input-label label-description">Description <b>(upto 100
-                            letter)</b></label>
-                    <input type="text" maxlength="100" required placeholder="Description" name="" id="input-description"
-                        class="input-field input-description" />
-                </div>
-                <div class="input-cont">
-                    <label for="input-priority" class="input-label label-priority">Priority</label>
-                    <select onclick="console.log(this.options)" required id="input-priority"
-                        class="input-field input-priority">
-                        <option value="important" data-color="#FF4500">High</option>
-                        <option selected value="medium" data-color="#f08c00">Medium</option>
-                        <option value="low" data-color="#1971c2">Low</option>
-                    </select>
-                </div>
-                <div class="input-cont align-center">
-                    <button type="submit" class="btn btn-add btn-add__todo-list" value="Add">Add</button>
-                </div>
-            </form>
+    <button class="btn btn-clear-all"><svg class="btn-clear-all__icon" xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 448 512">
+        <path class="del"
+          d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z" />
+      </svg>
+      <title class="input-label">Delete All</title>
+    </button>
+    <!-- Soon in the future more functionality will be added -->
+    <!-- <div class="btn-more-cont">
+      <button class="btn btn-more"><span></span>
+      </button>
+      <div class="btn-more-options">
+      </div>
+    </div> -->
+  </div>
+  <!-- Form to Add new ToDo into the list  -->
+  <div class="form-main fade-down">
+    <div class="form-cont">
+
+      <div class="form-cancel"><button class="btn btn-cancel">Cancel</button></div>
+
+      <form action="" class="form">
+        <div class="input-cont">
+          <label class="input-label label-time" for="input-time">At Time</label>
+          <input type="time" name="" id="input-time" required class="input-field input-time" />
         </div>
+
+        <div class="input-cont">
+          <label for="input-activity" class="input-label label-activity">Activity</label>
+          <input type="text" maxlength="20" required placeholder="What will you do?" name="" id="input-activity"
+            class="input-field input-activity" />
+        </div>
+
+        <div class="input-cont">
+          <label for="input-description" class="input-label label-description">Description <b>(upto 100
+              letter)</b></label>
+          <input type="text" maxlength="100" required placeholder="Default same as activity" name=""
+            id="input-description" class="input-field input-description" />
+        </div>
+
+        <div class="input-cont">
+          <label for="input-priority" class="input-label label-priority">Priority</label>
+          <select required id="input-priority" class="input-field input-priority">
+            <option value="important" data-color="#FF4500">High</option>
+            <option selected value="medium" data-color="#f08c00">Medium</option>
+            <option value="low" data-color="#1971c2">Low</option>
+          </select>
+        </div>
+
+        <div class="input-cont align-center">
+          <button type="submit" class="btn btn-add btn-add__todo-list" value="Add">Add</button>
+        </div>
+
+      </form>
     </div>
+  </div>
 </body>
 
 </html>
