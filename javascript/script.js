@@ -15,7 +15,7 @@ const inputPriority = document.querySelector(".input-priority");
 
 class ToDo {
   // to do fake details list for testing purpose
-  #todoList = [
+  /*#todoList = [
     {
       time: "12:30 PM",
       activity: "cycling",
@@ -52,10 +52,10 @@ class ToDo {
       description: `i wanna ride cylce to loose some weight`,
       priority: "#FF4500",
     },
-  ];
+  ];*/
 
   // stores todo list details in array as an object which later on used to render to the UI
-  //#todoList = [];
+  #todoList = [];
 
   constructor() {
     this.#syncLocalStorage();
