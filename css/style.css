@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'DancingScript';
-    src: url('../fonts/DancingScript-Bold.ttf'), url('../fonts/DancingScript-Medium.ttf'), url('../fonts/DancingScript-Regular.ttf'), url("../fonts/DancingScript-SemiBold.ttf"), url("../fonts/DancingScript-VariableFont_wght.ttf")
+    src: url('../fonts/DancingScript-Bold.ttf')
 }
 
 :root {
