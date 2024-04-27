@@ -14,46 +14,6 @@ const inputDescription = document.querySelector(".input-description");
 const inputPriority = document.querySelector(".input-priority");
 
 class ToDo {
-  // to do fake details list for testing purpose
-  /*#todoList = [
-    {
-      time: "12:30 PM",
-      activity: "cycling",
-      description: `i wanna ride cylce to `,
-      priority: "#f08c00",
-    },
-    {
-      time: "12:30 PM",
-      activity: "cycling",
-      description: `i wanna ride cylce to loose  weight`,
-      priority: "#FF4500",
-    },
-    {
-      time: "12:30 PM",
-      activity: "cycling",
-      description: `i wanna ride cylce to loose some weight non stop`,
-      priority: "#1971c2",
-    },
-    {
-      time: "12:30 PM",
-      activity: "cycling",
-      description: `i wanna ride cylce to loose some weight`,
-      priority: "#FF4500",
-    },
-    {
-      time: "12:30 PM",
-      activity: "cycling",
-      description: `i wanna ride cylce to loose some weight`,
-      priority: "#1971c2",
-    },
-    {
-      time: "12:30 PM",
-      activity: "cycling",
-      description: `i wanna ride cylce to loose some weight`,
-      priority: "#FF4500",
-    },
-  ];*/
-
   // stores todo list details in array as an object which later on used to render to the UI
   #todoList = [];
 
