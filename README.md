@@ -38,7 +38,7 @@ If you want to contribute or develop for your own you're all good to go with my 
 
 ### For Development use these prebuild fake ToDo list
 
-```json
+```
 #todoList = [
     {
       time: "12:30 PM",
